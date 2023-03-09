@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>CRUD JS</title>
+    <script src="javascript/app.js"></script>
+</head>
+<body>
+
+    <fieldset id="input-field">
+        <legend>
+            <h2>Input data</h2>
+        </legend>
+        <form>
+            <input type="text" placeholder="Employee ID" id="e_id">
+            <br><br>
+            <input type="text" placeholder="Employee Name" id="e_name">
+            <br><br>
+            <input type="text" placeholder="Employee Designation" id="e_des">
+            <br><br>
+            <input type="button" value="Submit" id="submit" onclick="Submit()">
+            <br><br>
+            <input type="reset" value="Reset" id="reset">
+            <br><br>
+        </form>
+    </fieldset>
+    <br>
+    <div id="msg"></div>
+    <fieldset>
+        <legend>
+            <h2>Data from localstorage</h2>
+        </legend>
+        <table id="tab">
+            <tr>
+                <td class="c1">Employee ID</td>
+                <td class="c1">Employee Name</td>
+                <td class="c1">Employee Designation</td>
+                <td class="c1">Action</td>
+            </tr>
+        </table>
+    </fieldset>
+    
+</body>
+</html>
