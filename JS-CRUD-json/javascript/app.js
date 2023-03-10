@@ -17,7 +17,7 @@ function Submit()
     }
 
     else{
-    update();
+    update(e_arr);
     msg.innerHTML="Data Updated"
     }
 
@@ -36,18 +36,23 @@ function readingDataFromLocalStorage(e_arr){
     var datas=JSON.stringify(json_data);
     localStorage.setItem(e_arr[0],datas);
 
-    var n=localStorage.setItem("Name",e_arr[0]);
-    var i=localStorage.setItem("ID",e_arr[1]);
-    var d=localStorage.setItem("Designation",e_arr[2]);
+    var existingData = localStorage.getItem(e_arr[0]);
+    var existingJsonData = JSON.parse(existingData);
 
+    existingJsonData.Name = e_arr[0];
+    existingJsonData.ID = e_arr[1];
+    existingJsonData.Designation = e_arr[2];
 
-    var get_n=localStorage.getItem("Name",n);
-    var get_i=localStorage.getItem("ID",i);
-    var get_d=localStorage.getItem("Designation",d);
+    var updatedData = JSON.stringify(existingJsonData);
+    localStorage.setItem(e_arr[0], updatedData);
+
+    var get_n = existingJsonData.Name;
+    var get_i = existingJsonData.ID;
+    var get_d = existingJsonData.Designation;
 
     var get_arr=[get_n,get_i,get_d];
 
-    return(get_arr);
+    return get_arr;
 }
 
 
@@ -70,10 +75,18 @@ function edit(td){
     document.getElementById("e_des").value=row.cells[2].innerHTML;
 }
 
-function update(){
+function update(e_arr){
     row.cells[0].innerHTML=document.getElementById("e_name").value;
     row.cells[1].innerHTML=document.getElementById("e_id").value;
     row.cells[2].innerHTML=document.getElementById("e_des").value;
+    // var json_data={
+    //     Name: row.cells[0],
+    //     ID:row.cells[1],
+    //     Designation:row.cells[2]
+    // }
+
+    // var datas=JSON.stringify(json_data);
+    localStorage.setItem(e_arr[1],datas);
     row=null;
 }
 
@@ -86,4 +99,25 @@ function remove(td){
         document.getElementById("tab").deleteRow(row.rowIndex);
     }
 }
+
+window.onload = function() {
+    loadTableData();
+  }
+  
+  function loadTableData() {
+    var table = document.getElementById("tab");
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (key != null) {
+        var data = JSON.parse(localStorage.getItem(key));
+        var row = table.insertRow();
+        row.insertCell(0).innerHTML = data.Name;
+        row.insertCell(1).innerHTML = data.ID;
+        row.insertCell(2).innerHTML = data.Designation;
+        row.insertCell(3).innerHTML = `<button onclick=edit(this)>Edit</button>
+                                   <button onclick=remove(this)>Delete</button>`;
+      }
+    }
+  }
+  
 
