@@ -34,9 +34,9 @@ function readingDataFromLocalStorage(e_arr){
     }
 
     var datas=JSON.stringify(json_data);
-    localStorage.setItem(e_arr[0],datas);
+    localStorage.setItem(e_arr[1],datas);
 
-    var existingData = localStorage.getItem(e_arr[0]);
+    var existingData = localStorage.getItem(e_arr[1]);
     var existingJsonData = JSON.parse(existingData);
 
     existingJsonData.Name = e_arr[0];
@@ -44,7 +44,7 @@ function readingDataFromLocalStorage(e_arr){
     existingJsonData.Designation = e_arr[2];
 
     var updatedData = JSON.stringify(existingJsonData);
-    localStorage.setItem(e_arr[0], updatedData);
+    localStorage.setItem(e_arr[1], updatedData);
 
     var get_n = existingJsonData.Name;
     var get_i = existingJsonData.ID;
@@ -94,7 +94,7 @@ function remove(td){
     var prompt=confirm("Continue deleting?")
     if(prompt==true){
         var row=td.parentElement.parentElement;
-        var n=document.getElementById("e_name").value;
+        var n=document.getElementById("e_id").value;
         localStorage.removeItem(n);
         document.getElementById("tab").deleteRow(row.rowIndex);
     }
