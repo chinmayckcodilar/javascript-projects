@@ -94,8 +94,10 @@ function remove(td){
     var prompt=confirm("Continue deleting?")
     if(prompt==true){
         var row=td.parentElement.parentElement;
-        var n=document.getElementById("e_id").value;
+        var n=row.cells[1].innerHTML;
+        console.log(n);
         localStorage.removeItem(n);
+
         document.getElementById("tab").deleteRow(row.rowIndex);
     }
 }
