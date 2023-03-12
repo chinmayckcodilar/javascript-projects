@@ -11,13 +11,13 @@ body{
   .book-card {
     text-align: justify;
     justify-content: space-between;
-    width: calc(30% - 20px); /* minus any margins or padding */
+    width: calc(30% - 20px); 
     margin-bottom: 20px;
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 0 5px #ccc;
     height: 400px;
-    overflow-y: scroll;
+    overflow-y: scroll; 
   }
 
   .book-card::-webkit-scrollbar {
