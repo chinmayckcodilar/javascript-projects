@@ -1,0 +1,88 @@
+body{
+    background-color: #AAC4FF;
+  }
+
+  .book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .book-card {
+    text-align: justify;
+    justify-content: space-between;
+    width: calc(30% - 20px); /* minus any margins or padding */
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+    height: 400px;
+    overflow-y: scroll;
+  }
+
+  .book-card::-webkit-scrollbar {
+  display: none;
+}
+
+  .book-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .book-card p {
+    margin-bottom: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  img{
+    width: 30%;
+    float: left;
+  }
+
+  #searchInput{
+    width: 23em;
+    border-radius: 5px;
+    height: 30px;
+    font-size: large;
+    margin-left: 30%; 
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border: none;
+    background-color: #dbe1ff;
+    color: #241d53;
+
+  }
+
+  button{
+    border-radius: 50px;
+    width: 120px;
+    height: 40px;
+    color: #ffffff;
+    background-color: #937DC2;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative;
+    bottom: 3px;
+    left: 16px;
+  }
+
+  .books{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 40%;
+    margin-top: 70px;
+    color: #937DC2;
+
+  }
+
+  .book-card{
+    background-color: #EEF1FF;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .book-container{
+    margin-top: 120px;
+  }
+
+  ::placeholder{
+    color: #54427a;
+  }
