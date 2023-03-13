@@ -1,8 +1,8 @@
 
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "http://www.omdbapi.com/?s=spiderman&apikey=" +"be425d18");
+// xhr.open("GET", "http://www.omdbapi.com/?s=spiderman&apikey=" +"be425d18");
 xhr.open("GET", "http://www.omdbapi.com/?s=batman&apikey=" +"be425d18");
-for(var i=0;i<3;i++)
+// for(var i=0;i<3;i++)
 xhr.onreadystatechange = function() {
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         var response = JSON.parse(this.responseText);
