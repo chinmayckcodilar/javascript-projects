@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+</head>
+<body>
+    <table id="table">
+        <thead>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', 'employees.php');
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const employees = JSON.parse(xhr.responseText);
+          const tbody = document.getElementById('tbody');
+          employees.forEach(employee => {
+            const tr = document.createElement('tr');
+            const nameTd = document.createElement('td');
+            nameTd.innerText = employee.name;
+            tr.appendChild(nameTd);
+            const ageTd = document.createElement('td');
+            ageTd.innerText = employee.age;
+            tr.appendChild(ageTd);
+            const positionTd = document.createElement('td');
+            positionTd.innerText = employee.position;
+            tr.appendChild(positionTd);
+            tbody.appendChild(tr);
+          });
+        }
+      };
+      xhr.send();
+    </script>
+</body>
+</html>
